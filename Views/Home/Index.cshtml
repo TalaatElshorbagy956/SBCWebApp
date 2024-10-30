@@ -1,0 +1,648 @@
+﻿
+@{
+    ViewBag.Title = HttpContext.GetGlobalResourceObject("Home", "MainTitle");
+    Layout = null;
+    var authToken = ViewBag.AuthToken as string;
+    bool isDebug = System.Diagnostics.Debugger.IsAttached;
+    bool isProduction = !isDebug;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="apple-touch-icon" href="~/Content/images/fav/favicon-32x32.png" />
+    <link rel="apple-touch-icon"
+          sizes="57x57"
+          href="~/Content/images/fav/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon"
+          sizes="60x60"
+          href="~/Content/images/fav/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon"
+          sizes="72x72"
+          href="~/Content/images/fav/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon"
+          sizes="76x76"
+          href="~/Content/images/fav/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon"
+          sizes="114x114"
+          href="~/Content/images/fav/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon"
+          sizes="120x120"
+          href="~/Content/images/fav/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon"
+          sizes="144x144"
+          href="~/Content/images/fav/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon"
+          sizes="152x152"
+          href="~/Content/images/fav/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="~/Content/images/fav/apple-icon-180x180.png" />
+    <link rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="~/Content/images/fav/android-icon-192x192.png" />
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="~/Content/images/fav/favicon-32x32.png" />
+    <link rel="icon"
+          type="image/png"
+          sizes="96x96"
+          href="~/Content/images/fav/favicon-96x96.png" />
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="~/Content/images/fav/favicon-16x16.png" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous" />
+    <link rel="stylesheet"
+          href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css"
+          rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="~/Content/TailwindCSS.css" />
+    <link rel="stylesheet" href="~/Content/LoadingSpinner.css" />
+    <link href="~/Content/CustomCheckBox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
+
+
+    <title>@HttpContext.GetGlobalResourceObject("Home", "MainTitle")</title>
+</head>
+<body class="body">
+    <div>
+        <div class="header">
+            <div class="header__background">
+                <video id="header_background_video" playsinline autoplay muted loop>
+                    <source src="~/Content/video/contact.mp4" type="video/mp4">
+                </video>
+                <div class="header__content" style="display: flex;flex-direction: row;justify-content: space-between;direction: rtl;">
+                    <div class="grid grid-cols-2 p-2 h-full w-full">
+                        <div class="col-span-2 xl:col-auto">
+                            <div class="site-logo flex items-start justify-start">
+                                <a href="https://business.sa/">
+                                    <img src="~/Content/images/sbc_white_logo.svg" alt="" class="w-52 max-w-full">
+                                </a>
+                                <div style="margin: 0 1rem">
+                                    <img src="~/Content/images/2030_white.svg" alt="" class="w-24 max-w-full">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-2 xl:col-auto">
+                            <div class="flex justify-end h-full items-end xl:items-start">
+                                <a class="linkBtn text-slate-100 font-light text-lg" href="#" onclick="switchLanguage('en')">English</a>
+                                <a class="linkBtn text-slate-100 font-light text-lg" href="#" onclick="switchLanguage('ar')">عربى</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div style="display: flex; flex-direction: row; gap: 1.5rem; z-index:1">
+                        <h2 class="text-white text-3xl">@HttpContext.GetGlobalResourceObject("Home", "Title")</h2>
+                    </div>*@
+            </div>
+        </div>
+        <div class="form-wrapper form-wrapper-fixed">
+            <div class="flex w-full flex-col text-slate-300">
+                <div class="line-container">
+                    <span class="line"></span>
+                    <h2 class="text-xl">@HttpContext.GetGlobalResourceObject("Home", "InquiryComplaint")</h2>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <form class="form searchComplaint">
+                <div class="form-row p-2">
+                    <div class="col-md-7 col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <input type="text"
+                                       class="form-control"
+                                       id="searchCaseInput"
+                                       aria-describedby="searchHelp"
+                                       placeholder="@HttpContext.GetGlobalResourceObject("Home", "SearchComplaintPH")" required />
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-info">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search" viewBox="0 0 17 17">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5  col-sm-12 CreateNew-Container">
+                        <button type="button"
+                                class="btn btn-outline-info complaintCreationBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                                <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5" />
+                                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z" />
+                            </svg>&nbsp;&nbsp;
+                            @HttpContext.GetGlobalResourceObject("Home", "CreateNewComplaint")
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="form-wrapper form-wrapper-fixed">
+            <form class="form complaintForm fade-in">
+                <!-- Customer Details Group Box -->
+                <div class="form-group p-2">
+                    <div class="line-container">
+                        <span class="line"></span>
+                        <h2 class="text-xl"> @HttpContext.GetGlobalResourceObject("Home", "CustomerSectionTitle")</h2>
+                        <span class="line"></span>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-7 col-sm-12">
+                            <div class="form-group">
+                                <label for="customerName">
+                                    @HttpContext.GetGlobalResourceObject("Home", "Search")  <span class="text-danger"> * </span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="text"
+                                           class="form-control"
+                                           id="customerName"
+                                           placeholder="@HttpContext.GetGlobalResourceObject("Home", "SearchCustomerPH")"
+                                           required />
+
+                                    <input type="hidden"
+                                           id="customerId" name="CustomerId" />
+                                    <input type="hidden"
+                                           id="CreateComplaintOtpToken" name="OTPToken" />
+                                    <div class="input-group-append">
+                                        <button id="customerSearchBtn" type="button" class="btn btn-info">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="130 -770 820 820" fill="currentColor">
+                                                <path d="M440.21-499.21q-54.83 0-93.9-39.1-39.07-39.11-39.07-93.52 0-55.16 39.11-94.02 39.11-38.87 93.52-38.87 55.16 0 94.02 38.87 38.87 38.86 38.87 93.68 0 54.83-38.87 93.9-38.86 39.06-93.68 39.06Zm-.23-47.88q35.58 0 60.24-24.92 24.65-24.93 24.65-59.93 0-35.59-24.63-60.24-24.64-24.65-59.89-24.65t-60.23 24.63q-24.99 24.63-24.99 59.88 0 35.26 24.92 60.24 24.93 24.99 59.93 24.99Zm433.1 493.63L750.65-176.14q-21.8 15.05-44.93 21.66-23.13 6.62-45.72 6.62-63.5 0-107.82-44.45-44.32-44.46-44.32-107.97 0-63.5 44.45-107.94 44.46-44.45 107.97-44.45 63.5 0 107.94 44.53 44.45 44.52 44.45 108.12 0 22.78-6.49 45.82-6.49 23.05-22.32 44.33l123.2 122.95-33.98 33.46ZM660-195.74q44.37 0 74.58-29.95 30.2-29.94 30.2-74.31 0-44.37-30.2-74.58-30.21-30.2-74.58-30.2t-74.31 30.2q-29.95 30.21-29.95 74.58t29.95 74.31q29.94 29.95 74.31 29.95Zm-515.73 4.25v-77.7q0-31 15.54-53.6 15.55-22.6 43.78-37.08 45.05-22.31 117.01-41.67 71.97-19.36 151.9-13.83-6.83 11.18-12.5 23.45t-9.18 23.87q-76.59-2.18-135.79 16.46-59.21 18.64-90.82 34.17-14.9 7.8-23.48 20.46t-8.58 27.77v29.82h253.58q5.91 12.5 12.07 24.79 6.16 12.28 13.1 23.09H144.27ZM440-631.96Zm5.73 392.59Z"></path>
+                                            </svg>
+                                            @*<span>@HttpContext.GetGlobalResourceObject("Home", "Search") </span>*@
+                                        </button>
+                                    </div>
+                                    <div class="customerNewBtn-wrapper">
+                                        <button id="customerNewBtn" type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#CreateNewCustomerModal" style="font-size: 0.8rem;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                                                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                                <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
+                                            </svg>
+                                            &nbsp;
+                                            <span>@HttpContext.GetGlobalResourceObject("Home", "AddNewCustomer") </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <small id="customerNameHelp" class="form-text helptext text-lang-align">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         viewBox="0 0 30 30"
+                                         stroke-width="1.5"
+                                         stroke="var(--dimmed)"
+                                         class="size-4">
+                                        <path stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                    </svg> &nbsp;
+                                    @HttpContext.GetGlobalResourceObject("Home", "CustomerSearchHelp")
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailAddress">@HttpContext.GetGlobalResourceObject("Home", "Email")</label>
+                                <input type="email"
+                                       class="form-control"
+                                       id="emailAddress"
+                                       placeholder=""
+                                       readonly
+                                       disabled />
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12">
+                            <div class="form-group">
+                                <label for="idNumber">@HttpContext.GetGlobalResourceObject("Home", "IdNumber")</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="idNumber"
+                                       placeholder=""
+                                       readonly
+                                       disabled />
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">@HttpContext.GetGlobalResourceObject("Home", "PhoneNumber")</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="phoneNumber"
+                                       placeholder=""
+                                       readonly
+                                       disabled />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Complaint Details Group Box -->
+                <div class="form-group p-2">
+                    <div class="line-container">
+                        <span class="line"></span>
+                        <h2 class="text-xl">@HttpContext.GetGlobalResourceObject("Home", "ComplaintSectionTitle")</h2>
+                        <span class="line"></span>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md col-sm-12">
+                            <div class="form-group">
+                                <label for="complaintNumber">@HttpContext.GetGlobalResourceObject("Home", "ComplaintNumber")</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="complaintNumber"
+                                       readonly
+                                       disabled
+                                       value="" />
+                            </div>
+                        </div>
+                        <div class="col-md col-sm-12">
+                            <div class="form-group">
+                                <label for="status">@HttpContext.GetGlobalResourceObject("Home", "ComplaintStatus")</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="status"
+                                       value=""
+                                       readonly
+                                       disabled />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md col-sm-12">
+                            <div class="form-group">
+                                <label for="complaintDescription">@HttpContext.GetGlobalResourceObject("Home", "ComplaintDesc") <span class="text-danger"> * </span></label>
+
+                                <textarea class="form-control"
+                                          id="complaintDescription"
+                                          placeholder="@HttpContext.GetGlobalResourceObject("Home", "ComplaintDescPH")"
+                                          rows="5"
+                                          required disabled></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md col-sm-12">
+                            <div class="form-group">
+                                <label for="mainClassification">@HttpContext.GetGlobalResourceObject("Home", "MainClass") <span class="text-danger"> * </span></label>
+
+                                <select class="form-control select2"
+                                        id="mainClassification"
+                                        placeholder="@HttpContext.GetGlobalResourceObject("Home", "MainClassPH")"
+                                        required disabled>
+                                    <option value="-1" disabled selected>@HttpContext.GetGlobalResourceObject("Home", "MainClassDefOption")</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="subClassification">@HttpContext.GetGlobalResourceObject("Home", "SubClass")  <span class="text-danger"> * </span></label>
+
+                                <select class="form-control"
+                                        id="subClassification"
+                                        placeholder="ابحث عن التصنيف الفرعى"
+                                        required disabled>
+                                    <option value="-1" disabled selected>@HttpContext.GetGlobalResourceObject("Home", "SubClassDefOption")</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.5"
+                             stroke="currentColor"
+                             class="size-6">
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                        </svg>
+                        <p class="font-extralight text-[.875rem]">
+                            تنويه: معلومات البلاغ سترسل إلى رقم العميل المسجل لدينا
+                        </p>
+                    </div>*@
+                <div class="form-row p-4" style="direction:ltr !important;">
+                    <button type="submit" class="btn btn-info submit-btn" id="submitComplaintBtn" disabled>
+                        @*<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor" class="size-5 rotate-180">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"></path>
+                            </svg>*@
+                        &nbsp;&nbsp;
+                        @HttpContext.GetGlobalResourceObject("Home", "SendComplaint")
+                        &nbsp;&nbsp;
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer class="w-full p-4">
+        <div class="max-w-6xl mx-auto md:px-8">
+            <div class="flex flex-col gap-5 lg:flex-row lg:justify-between items-center" style="flex-direction: row; justify-content:space-around">
+                <span class="text-slate-300 text-lang-align text-sm font-thin"> @HttpContext.GetGlobalResourceObject("Home", "CopyrightSentence")</span>
+
+                <div class="flex gap-5 text-slate-300" style="gap: .6rem;">
+                    <a href="https://www.instagram.com/bcgovsa/" class="hover:text-white">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC1mSbR2yfVqz6nn5sSBYa9g" class="hover:text-white">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="https://sa.linkedin.com/company/bcgovsa" class="hover:text-white">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/00966112822881" class="hover:text-white">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://x.com/BCgov_Care" class="hover:text-white">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="CreateNewCustomerModal" tabindex="-1" role="dialog" aria-labelledby="CreateNewCustomerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <form class="form" id="CreateCustomerForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="CreateNewCustomerModalLabel">
+                            @HttpContext.GetGlobalResourceObject("Home", "CreateNewCustomer")
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-wrapper form-wrapper-modal">
+                            <div class="form-row">
+                                <div class="col-md col-sm-12">
+
+
+                                    <div class="form-group">
+                                        <label for="CreateCustomerName">@HttpContext.GetGlobalResourceObject("Home", "CustomerName")</label>
+                                        <input type="text"
+                                               name="FullName"
+                                               class="form-control"
+                                               id="CreateCustomerName"
+                                               placeholder="@HttpContext.GetGlobalResourceObject("Home", "CustomerNamePH")" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="CreateCustomerPhone">@HttpContext.GetGlobalResourceObject("Home", "PhoneNumber")</label>
+                                        <input type="text"
+                                               name="PhoneNumber"
+                                               class="form-control"
+                                               id="CreateCustomerPhone"
+                                               placeholder="@HttpContext.GetGlobalResourceObject("Home", "PhoneNumberPH")" required
+                                               pattern="^05\d{8}$"
+                                               oninvalid="this.setCustomValidity('@HttpContext.GetGlobalResourceObject("Home", "PhoneNumberValidationMsg")')"
+                                               oninput="this.setCustomValidity('')" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="CreateCustomerEmail">@HttpContext.GetGlobalResourceObject("Home", "Email")</label>
+                                        <input type="email"
+                                               name="Email"
+                                               class="form-control"
+                                               id="CreateCustomerEmail"
+                                               placeholder="@HttpContext.GetGlobalResourceObject("Home", "EmailPH")" required />
+                                    </div>
+                                </div>
+                                <div class="col-md col-sm-12">
+                                    <div class="form-group">
+                                        <label for="CreateCustomerIdentityType">@HttpContext.GetGlobalResourceObject("Home", "IdentityType")</label>
+                                        <select class="form-control"
+                                                name="IdentityType"
+                                                id="CreateCustomerIdentityType" required>
+                                            <option value="1">
+                                                @HttpContext.GetGlobalResourceObject("Home", "IdentityTypeOne")
+                                            </option>
+                                            <option value="2">
+                                                @HttpContext.GetGlobalResourceObject("Home", "IdentityTypeTwo")
+                                            </option>
+                                            <option value="3">
+                                                @HttpContext.GetGlobalResourceObject("Home", "IdentityTypeThree")
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="CreateCustomerIdNumber">@HttpContext.GetGlobalResourceObject("Home", "IdNumber")</label>
+                                        <input type="text"
+                                               name="IdNumber"
+                                               class="form-control"
+                                               id="CreateCustomerIdNumber"
+                                               placeholder="@HttpContext.GetGlobalResourceObject("Home", "CreateCustomerIdNumberPH")" required />
+                                    </div>
+
+                                    <input type="hidden" name="OTPToken" id="CreateCustomerOtpToken" />
+                                </div>
+                            </div>
+                            <small id="createCustomerHelp" class="form-text helptext text-lang-align">
+                                <div class="checkbox-wrapper-12">
+                                    <div class="cbx">
+                                        <input id="cbx-12" type="checkbox" required />
+                                        <label for="cbx-12"></label>
+                                        <svg width="15" height="14" viewbox="0 0 15 14" fill="none">
+                                            <path d="M2 8.36364L6.23077 12L13 2"></path>
+                                        </svg>
+                                    </div>
+                                    <!-- Gooey-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                        <defs>
+                                            <filter id="goo-12">
+                                                <fegaussianblur in="SourceGraphic" stddeviation="4" result="blur"></fegaussianblur>
+                                                <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7" result="goo-12"></fecolormatrix>
+                                                <feblend in="SourceGraphic" in2="goo-12"></feblend>
+                                            </filter>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                &nbsp;
+                                @HttpContext.GetGlobalResourceObject("Home", "RegistrationConfirmationHelp")
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-info" data-dismiss="modal">
+                            @HttpContext.GetGlobalResourceObject("Home", "Cancel")
+                        </button>
+                        <button type="submit" id="SubmitNewCustomerBtn" class="btn btn-info">
+                            @HttpContext.GetGlobalResourceObject("Home", "SubmitNewCustomer")
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="OTPModal" tabindex="-1" role="dialog" aria-labelledby="OTPModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="OTPModalLabel">
+                        @HttpContext.GetGlobalResourceObject("Home", "PhoneOTPConfirmTitle")
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="flex flex-row text-sm text-center font-medium mb-4">
+                        <p>@HttpContext.GetGlobalResourceObject("Home", "PhoneOTPConfirmDesc")</p>
+                    </div>
+                    <div class="form-wrapper form-wrapper-modal">
+                        <form class="form" id="OtpForm">
+
+                            <div class="flex flex-col col-sm-12 space-y-16">
+                                <div id="otpInputsWarpper" class="flex flex-row items-center justify-between mx-auto w-full max-w-xs" dir="ltr">
+                                    <div class="w-16 h-16 ">
+                                        <input class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text" name="" id="">
+                                    </div>
+                                    <div class="w-16 h-16 ">
+                                        <input class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text" name="" id="">
+                                    </div>
+                                    <div class="w-16 h-16 ">
+                                        <input class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text" name="" id="">
+                                    </div>
+                                    <div class="w-16 h-16 ">
+                                        <input class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text" name="" id="">
+                                    </div>
+                                    <div class="w-16 h-16 ">
+                                        <input class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700" type="text" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="flex flex-col space-y-5">
+                                    <div id="OTPFormMessage" class="text-sm text-center font-medium" style="height:1.5rem">
+                                    </div>
+                                    <div>
+                                        <button id="OTPSubmitBtn" class="btn btn-info py-3 flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none border-none text-white text-sm shadow-sm">
+                                            @HttpContext.GetGlobalResourceObject("Home", "SubmitOTP")
+                                        </button>
+                                    </div>
+
+                                    <div class="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-400">
+                                        <p>@HttpContext.GetGlobalResourceObject("Home", "OTPNotSent")</p>
+                                        &nbsp;&nbsp;
+                                        <button id="OTPResendBtn" class="flex flex-row items-center text-blue-600 pt-2 pb-2" rel="noopener noreferrer">
+                                            @HttpContext.GetGlobalResourceObject("Home", "ResendOTP")
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="FoundCustomerConfirmModal" tabindex="-1" role="dialog" aria-labelledby="FoundCustomerConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="FoundCustomerConfirmModalLabel">
+                        @HttpContext.GetGlobalResourceObject("Home", "FoundCustomerConfirmTitle")
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="flex flex-row text-sm text-center font-medium ">
+                        <p>@HttpContext.GetGlobalResourceObject("Home", "FoundCustomerConfirmDesc") <span dir="ltr">******<span id="phoneEndingDigits"></span></span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-info" data-dismiss="modal">
+                        @HttpContext.GetGlobalResourceObject("Home", "Cancel")
+                    </button>
+                    <button type="submit" id="confirmFoundCustomerSendOtpBtn" class="btn btn-info">
+                        @HttpContext.GetGlobalResourceObject("Home", "Confirm")
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Messages -->
+    <!-- Single Alert Template -->
+    <div class="alert alert-dismissible fade show fixed-alert alertTemplate" id="alertTemplate" role="alert" style="display:none; opacity: 0; transition: opacity 0.5s;">
+        <span class="alertMessage"></span>
+        <a type="button" onclick="hideAlert()" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </a>
+    </div>
+    <div class="alert alert-dismissible fade show fixed-alert alertTemplate" id="CustomerNotFoundMsg" role="alert" style="display:none; opacity: 0; transition: opacity 0.5s;">
+        <span class="alertMessage"></span>
+        <p class="p-2">
+            <a href="#" onclick="hideAlert(); $('#CreateNewCustomerModal').modal();" class="linkBtn" style="margin: 0 auto;">
+                @HttpContext.GetGlobalResourceObject("Home", "AskToRegisterCustomer")
+            </a>
+        </p>
+        <a type="button" onclick="hideAlert()" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </a>
+    </div>
+    <!-- Loading spinner-->
+    <div class="lds-ripple-wrapper">
+        <div class="lds-ripple">
+            <div>
+            </div>
+            <div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"
+            integrity="sha256-sw0iNNXmOJbQhYFuC9OF2kOlD5KQKe1y5lfBn4C9Sjg="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        var isProduction = @(isProduction?"true":"false");
+        var translatedMessages = [
+            { Key: "ComplaintCreatedSuccessMsg", Content: "@HttpContext.GetGlobalResourceObject("Home", "ComplaintCreatedSuccessMsg")" },
+            { Key: "ComplaintNotCreatedMsg", Content: "@HttpContext.GetGlobalResourceObject("Home", "ComplaintNotCreatedMsg")" },
+            { Key: "ComplaintNotFound", Content: "@HttpContext.GetGlobalResourceObject("Home", "ComplaintNotFound")" },
+            { Key: "CustomerNotCreated", Content: "@HttpContext.GetGlobalResourceObject("Home", "CustomerNotCreated")" },
+            { Key: "CustomerNotFound", Content: "@HttpContext.GetGlobalResourceObject("Home", "CustomerNotFound")" },
+            { Key: "SomethingGoesWrong", Content: "@HttpContext.GetGlobalResourceObject("Home", "SomethingGoesWrong")" },
+            { Key: "OTPSendingError", Content: "@HttpContext.GetGlobalResourceObject("Home", "OTPSendingError")" }
+        ];
+        const StateCode = [
+            { id: 0, Text: "@HttpContext.GetGlobalResourceObject("Home", "StatecodeActive")" },
+            { id: 1, Text: "@HttpContext.GetGlobalResourceObject("Home", "StatecodeResolved")" },
+            { id: 2, Text: "@HttpContext.GetGlobalResourceObject("Home", "StatecodeRejected")" },
+        ];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('header_background_video');
+            video.muted = true; // Ensure the video is muted
+            video.play().catch(function (error) {
+                console.error('Error attempting to play the video:', error);
+            });
+        });
+    </script>
+    <script src="~/Scripts/main.js"></script>
+
+
+</body>
+</html>

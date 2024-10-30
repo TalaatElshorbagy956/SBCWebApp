@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Framework.Models.Fines" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Framework.Models.Fines" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfQueryFine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QueryFine" nillable="true" type="tns:QueryFine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQueryFine" nillable="true" type="tns:ArrayOfQueryFine" />
+  <xs:complexType name="QueryFine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CRNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EntityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FineNumber" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="PaymentFlag" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="SadadRefNo" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="SystemId" type="xs:int" />
+      <xs:element minOccurs="0" name="TicketID" type="xs:long" />
+      <xs:element minOccurs="0" name="ViolationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ViolationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryFine" nillable="true" type="tns:QueryFine" />
+</xs:schema>

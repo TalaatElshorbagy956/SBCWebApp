@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Framework.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Framework.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" />
+  <xs:complexType name="ArrayOfEmailParam">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailParam" nillable="true" type="tns:EmailParam" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailParam" nillable="true" type="tns:ArrayOfEmailParam" />
+  <xs:complexType name="EmailParam">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailParam" nillable="true" type="tns:EmailParam" />
+  <xs:complexType name="ArrayOfISICActivity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ISICActivity" nillable="true" type="tns:ISICActivity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfISICActivity" nillable="true" type="tns:ArrayOfISICActivity" />
+  <xs:complexType name="ISICActivity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivityCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ActivityDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthorityId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AuthorityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISICActivityCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ISICActivity" nillable="true" type="tns:ISICActivity" />
+  <xs:complexType name="ArrayOfEFileServiceDelegated">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EFileServiceDelegated" nillable="true" type="tns:EFileServiceDelegated" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEFileServiceDelegated" nillable="true" type="tns:ArrayOfEFileServiceDelegated" />
+  <xs:complexType name="EFileServiceDelegated">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DelegateType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasReference" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleEnglishName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EFileServiceDelegated" nillable="true" type="tns:EFileServiceDelegated" />
+  <xs:complexType name="MCISadadModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxDaysExpiry" type="xs:int" />
+      <xs:element minOccurs="0" name="NationalID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SadadAccount" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MCISadadModel" nillable="true" type="tns:MCISadadModel" />
+  <xs:complexType name="ArrayOfGetMonshaatRequestResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetMonshaatRequestResult" nillable="true" type="tns:GetMonshaatRequestResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetMonshaatRequestResult" nillable="true" type="tns:ArrayOfGetMonshaatRequestResult" />
+  <xs:complexType name="GetMonshaatRequestResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CRNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FiscalYear" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Lessthan200million" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationSize" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetMonshaatRequestResult" nillable="true" type="tns:GetMonshaatRequestResult" />
+  <xs:complexType name="ArrayOfServicesCountsModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServicesCountsModel" nillable="true" type="tns:ServicesCountsModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServicesCountsModel" nillable="true" type="tns:ArrayOfServicesCountsModel" />
+  <xs:complexType name="ServicesCountsModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServicesCountsModel" nillable="true" type="tns:ServicesCountsModel" />
+  <xs:complexType name="ResultEntityOfSubmitRequestOutputeOZIV97i">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultEntityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Framework.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SubmitRequestOutput" Namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FaultResponse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" minOccurs="0" name="Result" nillable="true" type="q1:SubmitRequestOutput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultEntityOfSubmitRequestOutputeOZIV97i" nillable="true" type="tns:ResultEntityOfSubmitRequestOutputeOZIV97i" />
+  <xs:complexType name="ResultEntityOfGetStatusOutputeOZIV97i">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultEntityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Framework.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GetStatusOutput" Namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FaultResponse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" minOccurs="0" name="Result" nillable="true" type="q2:GetStatusOutput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultEntityOfGetStatusOutputeOZIV97i" nillable="true" type="tns:ResultEntityOfGetStatusOutputeOZIV97i" />
+  <xs:complexType name="ResultEntityOfGetDetailedStatusOutputeOZIV97i">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultEntityOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Framework.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GetDetailedStatusOutput" Namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FaultResponse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" minOccurs="0" name="Result" nillable="true" type="q3:GetDetailedStatusOutput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultEntityOfGetDetailedStatusOutputeOZIV97i" nillable="true" type="tns:ResultEntityOfGetDetailedStatusOutputeOZIV97i" />
+</xs:schema>

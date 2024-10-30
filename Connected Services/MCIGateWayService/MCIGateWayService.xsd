@@ -1,0 +1,1044 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MCIGateWay" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Framework.Models" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/MCI.Models" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MCI.Model" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Framework" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Framework.Services" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.HR" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Sadad" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MCIBilling.WebService" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.TMS" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Professions" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.GPMLicenses" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.LabLicenses" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.CRM" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Efada" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Permissions" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.SmsTemplateDtos" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Fines" />
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Recalls" />
+  <xs:element name="SendEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApiKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="To" nillable="true" type="q1:ArrayOfstring" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Cc" nillable="true" type="q2:ArrayOfstring" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Bcc" nillable="true" type="q3:ArrayOfstring" />
+        <xs:element minOccurs="0" name="TemplateCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BodyParameters" nillable="true" type="q4:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MCIGateWay" minOccurs="0" name="SendEmailResult" nillable="true" type="q5:ReturnResults" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailKeyVal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApiKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="To" nillable="true" type="q6:ArrayOfstring" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Cc" nillable="true" type="q7:ArrayOfstring" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Bcc" nillable="true" type="q8:ArrayOfstring" />
+        <xs:element minOccurs="0" name="TemplateCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="BodyParametersKeyValue" nillable="true" type="q9:ArrayOfEmailParam" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailKeyValResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MCIGateWay" minOccurs="0" name="SendEmailKeyValResult" nillable="true" type="q10:ReturnResults" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendSMS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApiKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TemplateCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BodyParameters" nillable="true" type="q11:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendSMSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MCIGateWay" minOccurs="0" name="SendSMSResult" nillable="true" type="q12:ReturnResults" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetCRInfoResult" nillable="true" type="q13:CR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" type="xs:double" />
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uType" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MCI.Model" minOccurs="0" name="GetPersonInfoResult" nillable="true" type="q14:YaqeenInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeOTPRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isAbsherOTP" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeOTPRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MakeOTPRequestResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeOTPRequestByNID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeOTPRequestByNIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MakeOTPRequestByNIDResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckOTPIsValid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RequestId" type="xs:long" />
+        <xs:element minOccurs="0" name="OTP" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckOTPIsValidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckOTPIsValidResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEFileContactOfficer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsDev" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEFileContactOfficerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Framework" minOccurs="0" name="GetEFileContactOfficerResult" nillable="true" type="q15:ContactOfficerModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateByAD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateByADResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuthenticateByADResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetADUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetADUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Framework.Services" minOccurs="0" name="GetADUserResult" nillable="true" type="q16:ADUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EmpId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Framework.Models.HR" minOccurs="0" name="GetEmployeeDataResult" nillable="true" type="q17:EmployeeFullData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNSaveDoc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNOS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNClassName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Framework" minOccurs="0" name="data" nillable="true" type="q18:ArrayOfFNAttribute" />
+        <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileData" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNSaveDocResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FNSaveDocResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNDeleteDoc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNOS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNDeleteDocResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FNDeleteDocResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNGetDoc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNOS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNClassName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNGetDocResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FNGetDocResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNGetDocInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNClassName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNGetDocInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Framework" minOccurs="0" name="FNGetDocInfoResult" nillable="true" type="q19:FNInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNSaveDocInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FNClassName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Framework" minOccurs="0" name="data" nillable="true" type="q20:ArrayOfFNAttribute" />
+        <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileData" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNSaveDocInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FNSaveDocInfoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNDeleteDocInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FNDeleteDocInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FNDeleteDocInfoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShearchInAD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="textShearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShearchInADResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Framework.Services" minOccurs="0" name="ShearchInADResult" nillable="true" type="q21:ArrayOfADUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EfileLogout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsDev" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EfileLogoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EfileLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="secret" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isDev" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EfileLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EfileLoginResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEFileUserDataByNID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="secret" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsDev" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEFileUserDataByNIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Framework" minOccurs="0" name="GetEFileUserDataByNIDResult" nillable="true" type="q22:ContactOfficerModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCRForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCRForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetAllCRForNationalIdResult" nillable="true" type="q23:ArrayOfCRForPerson" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPersonsForCR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPersonsForCRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetAllPersonsForCRResult" nillable="true" type="q24:ArrayOfCRPerson" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFakeAllPersonsForCR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFakeAllPersonsForCRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetFakeAllPersonsForCRResult" nillable="true" type="q25:ArrayOfCRPerson" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateSadadBill">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Framework.Models.Sadad" minOccurs="0" name="model" nillable="true" type="q26:GenerateBillSadadRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateSadadBillResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MCIBilling.WebService" minOccurs="0" name="GenerateSadadBillResult" nillable="true" type="q27:GenerateBillSadadResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBillDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Framework.Models.Sadad" minOccurs="0" name="model" nillable="true" type="q28:GetBillDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBillDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MCIBilling.WebService" minOccurs="0" name="GetBillDetailResult" nillable="true" type="q29:GetBillDetailResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelBill">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Framework.Models.Sadad" minOccurs="0" name="model" nillable="true" type="q30:CancelBillRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelBillResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MCIBilling.WebService" minOccurs="0" name="CancelBillResult" nillable="true" type="q31:ChangeBillResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRBranches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRBranchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetCRBranchesResult" nillable="true" type="q32:ArrayOfCR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDelegatedReferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="secret" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="delegatorNid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CRNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsDev" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDelegatedReferencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="GetDelegatedReferencesResult" nillable="true" type="q33:ArrayOfEFileServiceDelegated" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMultiCRsInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CRs" nillable="true" type="q34:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMultiCRsInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetMultiCRsInfoResult" nillable="true" type="q35:ArrayOfCR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenrateMCISadadBill">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="model" nillable="true" type="q36:MCISadadModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenrateMCISadadBillResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GenrateMCISadadBillResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMCISadadBillStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BillingNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMCISadadBillStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMCISadadBillStatusResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTMForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTMForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Framework.Models.TMS" minOccurs="0" name="GetAllTMForNationalIdResult" nillable="true" type="q37:ArrayOfTradeMarkInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProfessionsForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProfessionsForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Framework.Models.Professions" minOccurs="0" name="GetAllProfessionsForNationalIdResult" nillable="true" type="q38:ArrayOfProfessionInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonForCRWithCOC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CRNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonForCRWithCOCResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetPersonForCRWithCOCResult" nillable="true" type="q39:PersonForCRWithCOC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMonshaatRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CRNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsConsolidated" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMonshaatRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="GetMonshaatRequestResult" nillable="true" type="q40:ArrayOfGetMonshaatRequestResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOwnerMobileByCRNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CRNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOwnerMobileByCRNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetOwnerMobileByCRNumberResult" nillable="true" type="q41:CROwnerInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTicketsForCRNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CRNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTicketsForCRNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Framework.Models.Professions" minOccurs="0" name="GetAllTicketsForCRNumberResult" nillable="true" type="q42:ArrayOfTicketInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRelatedCrsForCRNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllRelatedCrsForCRNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetAllRelatedCrsForCRNumberResult" nillable="true" type="q43:ArrayOfCR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTicketsForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTicketsForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Framework.Models.Professions" minOccurs="0" name="GetAllTicketsForNationalIdResult" nillable="true" type="q44:ArrayOfTicketInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllGPMLicensesForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllGPMLicensesForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Framework.Models.GPMLicenses" minOccurs="0" name="GetAllGPMLicensesForNationalIdResult" nillable="true" type="q45:ArrayOfGPMLicensesInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllLabLicensesForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllLabLicensesForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Framework.Models.LabLicenses" minOccurs="0" name="GetAllLabLicensesForNationalIdResult" nillable="true" type="q46:ArrayOfLabLicensesInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCRForNationalIdWithoutDuplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCRForNationalIdWithoutDuplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/MCI.Models" minOccurs="0" name="GetAllCRForNationalIdWithoutDuplicationResult" nillable="true" type="q47:ArrayOfCRForPerson" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRCountWithStatusForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRCountWithStatusForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="GetCRCountWithStatusForNationalIdResult" nillable="true" type="q48:ArrayOfServicesCountsModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseCountWithStatusForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLicenseCountWithStatusForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="GetLicenseCountWithStatusForNationalIdResult" nillable="true" type="q49:ArrayOfServicesCountsModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrademarkCountWithStatusForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrademarkCountWithStatusForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="GetTrademarkCountWithStatusForNationalIdResult" nillable="true" type="q50:ArrayOfServicesCountsModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViolationCountWithStatusForNationalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetViolationCountWithStatusForNationalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="GetViolationCountWithStatusForNationalIdResult" nillable="true" type="q51:ArrayOfServicesCountsModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRQRImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRQRImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Framework.Models.CRM" minOccurs="0" name="GetCRQRImageResult" nillable="true" type="q52:CRQRResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRCertificate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRCertificateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Framework.Models.CRM" minOccurs="0" name="GetCRCertificateResult" nillable="true" type="q53:CRCertificateResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendNewEfadaRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsCRMain" type="xs:boolean" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendNewEfadaRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Framework.Models.Efada" minOccurs="0" name="SendNewEfadaRequestResult" nillable="true" type="q54:EfadaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEfadaRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEfadaRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Framework.Models.Efada" minOccurs="0" name="GetEfadaRequestsResult" nillable="true" type="q55:EfadaRequests" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRQRUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCRQRUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Framework.Models.CRM" minOccurs="0" name="GetCRQRUrlResult" nillable="true" type="q56:CRQRUrlResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateShareholdersRecordUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateShareholdersRecordUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidateShareholdersRecordUpdateResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShareholdersListByCRNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShareholdersListByCRNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Framework" minOccurs="0" name="GetShareholdersListByCRNumberResult" nillable="true" type="q57:ArrayOfGetShareholdersListByCRNumber_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShareholderCRsByIdentityNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShareholderCRsByIdentityNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Framework" minOccurs="0" name="GetShareholderCRsByIdentityNumberResult" nillable="true" type="q58:ArrayOfGetShareholderCRsByIdentityNumber_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Framework.Models.Permissions" minOccurs="0" name="model" nillable="true" type="q59:GetUserPermissionsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPermissionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Framework.Models.Permissions" minOccurs="0" name="GetUserPermissionsResult" nillable="true" type="q60:GetUserPermissionsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSmsTemplates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSmsTemplatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Framework.Models.SmsTemplateDtos" minOccurs="0" name="GetAllSmsTemplatesResult" nillable="true" type="q61:ArrayOfSmsTemplateDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSmsTemplateFields">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Framework.Models.SmsTemplateDtos" minOccurs="0" name="input" nillable="true" type="q62:GetSmsTemplateInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSmsTemplateFieldsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Framework.Models.SmsTemplateDtos" minOccurs="0" name="GetSmsTemplateFieldsResult" nillable="true" type="q63:SmsTemplateFieldsDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" minOccurs="0" name="input" nillable="true" type="q64:SubmitRequestModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="SubmitRequestResult" nillable="true" type="q65:ResultEntityOfSubmitRequestOutputeOZIV97i" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" minOccurs="0" name="input" nillable="true" type="q66:GetStatusModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="GetStatusResult" nillable="true" type="q67:ResultEntityOfGetStatusOutputeOZIV97i" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDetailedStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" minOccurs="0" name="input" nillable="true" type="q68:GetDetailedStatusModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDetailedStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Framework.Models" minOccurs="0" name="GetDetailedStatusResult" nillable="true" type="q69:ResultEntityOfGetDetailedStatusOutputeOZIV97i" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFines">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fineNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="crNoOrManLicNo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFinesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Framework.Models.Fines" minOccurs="0" name="GetFinesResult" nillable="true" type="q70:ArrayOfQueryFine" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecallsBySerial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Apikey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serial" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecallsBySerialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Framework.Models.Recalls" minOccurs="0" name="GetRecallsBySerialResult" nillable="true" type="q71:ArrayOfRecallBySerial" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

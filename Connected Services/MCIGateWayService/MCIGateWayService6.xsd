@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Framework" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Framework" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ContactOfficerModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BirthDateHijri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BuildingNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityTelephoneCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactTelephone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstNameEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormalIdentityNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullNameEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasWaselAccount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InterContactMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InterContactTelephone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssueAuthority" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssueDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IssuePlace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastNameEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LegalStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="NationalityID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POBox" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonGUID" type="ser:guid" />
+      <xs:element minOccurs="0" name="PersonImage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecondName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecondNameEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelephoneCodeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThirdName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThirdNameEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactOfficerModel" nillable="true" type="tns:ContactOfficerModel" />
+  <xs:complexType name="ArrayOfFNAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FNAttribute" nillable="true" type="tns:FNAttribute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFNAttribute" nillable="true" type="tns:ArrayOfFNAttribute" />
+  <xs:complexType name="FNAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vlaue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FNAttribute" nillable="true" type="tns:FNAttribute" />
+  <xs:complexType name="FNInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FNInfo" nillable="true" type="tns:FNInfo" />
+  <xs:complexType name="ArrayOfGetShareholdersListByCRNumber_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetShareholdersListByCRNumber_Result" nillable="true" type="tns:GetShareholdersListByCRNumber_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetShareholdersListByCRNumber_Result" nillable="true" type="tns:ArrayOfGetShareholdersListByCRNumber_Result" />
+  <xs:complexType name="GetShareholdersListByCRNumber_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CRNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorBirthDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorIdentityNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorIdentityType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorIdentityTypeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ContributorMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorNationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorNationalityId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ShareCount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ShareType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShareValue" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="approve_date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="capital" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="companyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="company_share_count" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="company_share_price" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="company_special_share_count" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="company_special_share_price" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="is_valid" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetShareholdersListByCRNumber_Result" nillable="true" type="tns:GetShareholdersListByCRNumber_Result" />
+  <xs:complexType name="ArrayOfGetShareholderCRsByIdentityNumber_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetShareholderCRsByIdentityNumber_Result" nillable="true" type="tns:GetShareholderCRsByIdentityNumber_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetShareholderCRsByIdentityNumber_Result" nillable="true" type="tns:ArrayOfGetShareholderCRsByIdentityNumber_Result" />
+  <xs:complexType name="GetShareholderCRsByIdentityNumber_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CRNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorBirthDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorIdentityNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContributorMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShareCount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ShareType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShareValue" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="approve_date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="capital" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="companyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="company_share_count" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="company_share_price" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="company_special_share_count" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="company_special_share_price" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="is_valid" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetShareholderCRsByIdentityNumber_Result" nillable="true" type="tns:GetShareholderCRsByIdentityNumber_Result" />
+</xs:schema>

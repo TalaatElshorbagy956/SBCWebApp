@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Framework.Models.SmsTemplateDtos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Framework.Models.SmsTemplateDtos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfSmsTemplateDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SmsTemplateDto" nillable="true" type="tns:SmsTemplateDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSmsTemplateDto" nillable="true" type="tns:ArrayOfSmsTemplateDto" />
+  <xs:complexType name="SmsTemplateDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SmsTemplateDto" nillable="true" type="tns:SmsTemplateDto" />
+  <xs:complexType name="GetSmsTemplateInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Language" type="xs:int" />
+      <xs:element minOccurs="0" name="TemplateId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSmsTemplateInput" nillable="true" type="tns:GetSmsTemplateInput" />
+  <xs:complexType name="SmsTemplateFieldsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfSmsFieldDto" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TemplateCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SmsTemplateFieldsDto" nillable="true" type="tns:SmsTemplateFieldsDto" />
+  <xs:complexType name="ArrayOfSmsFieldDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SmsFieldDto" nillable="true" type="tns:SmsFieldDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSmsFieldDto" nillable="true" type="tns:ArrayOfSmsFieldDto" />
+  <xs:complexType name="SmsFieldDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SmsFieldDto" nillable="true" type="tns:SmsFieldDto" />
+</xs:schema>

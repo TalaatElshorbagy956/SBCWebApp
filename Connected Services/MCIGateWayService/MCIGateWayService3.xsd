@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Framework.Models.CRM" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Framework.Models.CRM" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CRQRResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QRImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CRQRResult" nillable="true" type="tns:CRQRResult" />
+  <xs:complexType name="CRCertificateResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrintCertificate" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="PrintContentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CRCertificateResult" nillable="true" type="tns:CRCertificateResult" />
+  <xs:complexType name="CRQRUrlResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QrUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CRQRUrlResult" nillable="true" type="tns:CRQRUrlResult" />
+</xs:schema>

@@ -1,0 +1,584 @@
+﻿
+@font-face {
+    font-family: 'Nunito';
+    src: url('Fonts/nunito-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DinNext';
+    src: url('Fonts/DINNextLTArabic-Regular.woff2') format('truetype');
+}
+
+/*:root {
+    --primary-color: #3498db;
+    --secondary-color: #3e3c5b;
+    --accent-color: #e74c3c;
+    --background-color: oklch(0.335117 0.057432 285.624415 / 1);
+    --input-bg: oklch(0.9 0.03 288.53);
+    --text-color: #d7def1;
+    --input-disabled: #333249;*/ /*#d8d8d8ee*/
+/*--input-focus: oklch(0.35 0.05 286.39);
+    --btn-bg: #484574;
+    --btn-outline-hover: #7f7e9d;
+    --input-border: #757392;
+}*/
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #3f3d5f;
+    --accent-color: #e74c3c;
+    --background-color: oklch(0.335117 0.057432 285.624415 / 1);
+    --input-bg: oklch(0.88 0.03 288.34);
+    --text-color: #d7def1;
+    --input-text-color: #1b1c1d;
+    --input-disabled: #8684a2;
+    --input-focus: oklch(0.96 0.02 288.87);
+    --btn-bg: #484574;
+    --btn-outline-hover: #7f7e9dc4;
+    --input-border: #757392;
+    --dimmed: #a8b1c8;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+body {
+    font-family: "Nunito", sans-serif !important;
+}
+
+    body[lang="en"] {
+        font-family: "Nunito", sans-serif !important;
+    }
+
+    body[lang="ar"] {
+        font-family: "DinNext", sans-serif !important;
+    }
+
+        body[lang="ar"] .text-lang-align {
+            text-align: right;
+        }
+
+    body .text-lang-align {
+        text-align: left;
+    }
+
+.body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.header {
+    position: relative;
+}
+
+.header__background {
+    /*  background-image: linear-gradient( 94deg, #343253 13.13%, rgba(64, 40, 107, 0.63) 52.49%, #343253 88.13% ), url("images/headerbg.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    background-size: cover;
+      */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem;
+}
+
+    .header__background video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    .header__background::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgb(52 50 83), rgb(18 12 48 / 15%));
+        z-index: 1;
+    }
+
+
+.header__content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    direction: rtl;
+    z-index: 1;
+}
+
+
+
+.form-wrapper {
+    width: 83%;
+    padding: 1.4rem;
+    margin: 0 auto;
+}
+
+    .form-wrapper.form-wrapper-fixed {
+        border: 1px solid rgb(137 137 137 / 28%);
+        border-radius: 0.8rem;
+        margin: 1.7rem auto;
+        background-color: var(--secondary-color);
+        box-shadow: 0px 2px 5px #4e4c71;
+    }
+
+    .form-wrapper.form-wrapper-modal {
+        padding: 0 1rem;
+    }
+
+.form-row {
+    padding: 0 5px;
+}
+
+.border {
+    border: 1px solid rgb(75, 89, 107) !important;
+}
+
+.form-control {
+    background-color: var(--input-bg);
+    border: 1px solid var(--btn-bg) !important;
+    font-size: 0.8rem;
+    color: var(--btn-bg);
+    width: 100% !important;
+    border-radius: .5rem;
+    line-height: 2;
+}
+
+.btn {
+    border: 1px solid var(--btn-outline-hover) !important; /*rgb(71 85 105)*/
+    line-height: 1.8;
+    font-size: 0.8rem;
+    border-radius: .5rem;
+    margin: 0 .1rem;
+    box-shadow: 1px 4px 5px inset var(--secondary-color);
+}
+
+    .btn:hover {
+        background-color: var(--btn-bg);
+        border-color: var(--btn-outline-hover);
+    }
+
+.input-group-append > .btn {
+    margin: auto;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: var(--input-disabled);
+    color: var(--input-text-color);
+}
+
+.form-control:focus {
+    color: var(--input-text-color);
+    background-color: var(--input-focus);
+    border-color: var(--input-border);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem var(--input-border);
+}
+
+.btn-info:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 .2rem var(--input-border);
+}
+
+.btn-outline-info.focus, .btn-outline-info:focus {
+    box-shadow: 0 0 0 .2rem var(--input-border);
+}
+
+.btn-outline-info:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 .2rem var(--input-border);
+    background-color: var(--btn-outline-hover);
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    color: var(--input-text-color);
+}
+
+.form-row > div {
+    padding: .8rem !important;
+}
+
+
+.btn-info {
+    background-color: var(--btn-bg) !important;
+    font-size: 1rem;
+}
+
+    .btn-info:focus {
+        box-shadow: 0 0 0 .2rem var(--input-border);
+    }
+
+.btn-outline-info {
+    color: var(--text-color) !important;
+    font-size: .9rem;
+}
+
+    .btn-outline-info:hover {
+        background-color: var(--btn-outline-hover) !important;
+    }
+
+.btn-info:not(:disabled):not(.disabled):active {
+    background-color: var(--btn-bg);
+    border-color: var(--input-border);
+}
+
+
+
+
+/*.input-group > .input-group-append > .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group > .form-control:not(:last-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}*/
+
+.select2-container--default .select2-selection--single {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--background-color);
+    color: var(--input-text-color);
+    height: 2.2rem;
+    border-radius: .5rem;
+}
+
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
+        color: var(--input-text-color);
+    }
+
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__arrow {
+        color: var(--background-color);
+    }
+
+.select2-dropdown {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--background-color); /*#343253*/
+    color: var(--input-text-color);
+}
+
+.select2-results__option {
+    color: var(--input-text-color);
+}
+
+.select2-results__option--highlighted {
+    background-color: var(--background-color) !important;
+}
+
+.select2-container--default .select2-results__option--selected {
+    background-color: var(--background-color) !important;
+    color: var(--text-color);
+}
+
+.select2-search__field {
+    background-color: var(--input-bg);
+}
+
+.select2-container {
+    display: block;
+}
+
+.searchComplaint .select2-container {
+    width: 80% !important;
+}
+
+.complaintCreationBtn {
+    float: right;
+}
+
+/* fix all svg icons position*/
+svg {
+    display: inline;
+    width: 22px;
+    height: 22px;
+    color: var(--text-color);
+}
+
+#customerName, #searchCaseInput {
+    width: auto !important;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+    .fade-in.show {
+        opacity: 1;
+    }
+
+
+.form-group label {
+    display: flex;
+}
+
+.CreateNew-Container {
+    display: flex;
+    justify-content: end;
+    height: fit-content;
+}
+
+
+/* On RTL to reset form group inline with button style*/
+body[lang="ar"] .input-group > .form-control:not(:last-child) {
+    border-radius: 0 .5rem .5rem 0 !important;
+}
+
+body[lang="ar"] .input-group-append > .btn {
+    border-radius: .5rem 0 0 .5rem !important;
+}
+
+body[lang="en"] .input-group-append > .btn {
+    border-radius: 0 .5rem .5rem 0 !important;
+}
+
+.fixed-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    height: auto;
+    width: 45%;
+    min-width: fit-content;
+    max-width: 77%;
+    text-align: center;
+    color: var(--text-color);
+    font-size: large;
+}
+
+
+
+.alert, .modal-content {
+    background: rgb(52 50 83 / 69%);
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgb(52 58 86 / 14%);
+}
+
+.alert-success {
+    box-shadow: 0px 0px 2rem #706ac1;
+}
+
+.alert-danger {
+    box-shadow: 0px 0px 2rem #c0537c;
+}
+
+.alert-info {
+    box-shadow: 0px 0px 2rem #778dc4;
+}
+
+.alertMessage {
+    font-size: .9rem;
+}
+
+.modal-content > div {
+    border-color: var(--input-border);
+    display: flex;
+    justify-content: space-between;
+    padding: .8rem 1rem;
+}
+
+.modal-header .close {
+    color: var(--text-color);
+    margin: -1rem -1rem -1rem;
+}
+
+.modal-title {
+    font-size: large;
+}
+
+.modal-body {
+    flex-direction: column;
+}
+
+.modal-dialog {
+    margin: 1.1rem auto;
+}
+
+.modal-backdrop {
+    opacity: 0.5 !important;
+}
+
+#otpInputsWarpper > div > input {
+    color: navy;
+    font-size: x-large;
+}
+
+
+body[lang="en"] .customerNewBtn-wrapper {
+    margin-left: .5rem;
+}
+
+body[lang="ar"] .customerNewBtn-wrapper {
+    margin-right: .5rem;
+}
+
+
+
+.line-container {
+    display: flex;
+    align-items: center;
+    color: #b8bedb;
+    width: 40%;
+    margin-bottom: 1rem;
+    flex-direction: row; /* Default direction */
+    font-weight: bold;
+}
+
+    .line-container .line {
+        flex-grow: 1;
+        height: 1px;
+        background-color: #b8bedb4d;
+        margin: 0 10px;
+    }
+
+    .line-container .text {
+        white-space: nowrap;
+    }
+
+/* Directional styles for Arabic */
+body[lang="ar"] .line-container {
+    flex-direction: row-reverse; /* Reverse direction for Arabic */
+}
+
+.site-logo img {
+    height: 3.5rem;
+}
+
+#customerSearchBtn {
+    height: 2.5rem;
+}
+
+.linkBtn {
+    color: white;
+    margin: 0 .5rem;
+    text-shadow: 0px 0px 5px #e5e5e5;
+    text-decoration: underline;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+    .linkBtn:hover {
+        color: #e1dcff;
+    }
+
+
+.alertMessage {
+    font-size: 1rem;
+}
+
+.helptext {
+    color: var(--dimmed);
+    display:flex;
+}
+
+
+
+
+
+/* WebKit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the entire scrollbar */
+    height: 12px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Background color of the scrollbar thumb */
+    border-radius: 6px; /* Rounded corners of the scrollbar thumb */
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Background color when hovering over the scrollbar thumb */
+    }
+
+/* Firefox */
+* {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #888 #f1f1f1; /* Thumb color and track color */
+}
+
+
+
+@media (max-width: 768px) {
+    .customerNewBtn-wrapper {
+        margin-top: 4rem !important; /* Add margin-top on small screens */
+        margin-left: 0 !important; /* Reset margin-left */
+        margin-right: 0 !important; /* Reset margin-right */
+        width: 100%;
+    }
+
+    .form-row > div {
+        padding: 0 !important;
+    }
+
+    .btn {
+        margin: 0 !important;
+    }
+
+    .line-container {
+        width: 100% !important;
+    }
+
+    .header__background {
+        padding: 1.2rem !important;
+        height: 16rem;
+    }
+
+    .form-wrapper {
+        width: 92% !important;
+        padding: .5rem !important;
+    }
+
+
+    .fixed-alert {
+        width: 85% !important;
+        min-width: fit-content !important;
+        max-width: 90% !important;
+    }
+
+    #customerNameHelp {
+        position: absolute;
+        top: 5rem;
+    }
+}

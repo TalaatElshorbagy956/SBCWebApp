@@ -1,0 +1,1283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="MCIGateWayService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="endpointMCIGateWayService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MCIGateWay" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Framework.Models" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/MCI.Models" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MCI.Model" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Framework" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Framework.Services" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.HR" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Sadad" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MCIBilling.WebService" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.TMS" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Professions" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.GPMLicenses" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.LabLicenses" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.CRM" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Efada" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Permissions" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.SmsTemplateDtos" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Nabaa" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Fines" />
+      <xsd:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/Framework.Models.Recalls" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMCIGateWayService_SendEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_SendEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_SendEmailKeyVal_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailKeyVal" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_SendEmailKeyVal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailKeyValResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_SendSMS_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_SendSMS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRInfo" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetPersonInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonInfo" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetPersonInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_MakeOTPRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeOTPRequest" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_MakeOTPRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeOTPRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_MakeOTPRequestByNID_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeOTPRequestByNID" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_MakeOTPRequestByNID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeOTPRequestByNIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_CheckOTPIsValid_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOTPIsValid" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_CheckOTPIsValid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOTPIsValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetEFileContactOfficer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEFileContactOfficer" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetEFileContactOfficer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEFileContactOfficerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_AuthenticateByAD_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateByAD" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_AuthenticateByAD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateByADResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetADUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetADUser" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetADUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetADUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetEmployeeData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeData" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetEmployeeData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNSaveDoc_InputMessage">
+    <wsdl:part name="parameters" element="tns:FNSaveDoc" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNSaveDoc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FNSaveDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNDeleteDoc_InputMessage">
+    <wsdl:part name="parameters" element="tns:FNDeleteDoc" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNDeleteDoc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FNDeleteDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNGetDoc_InputMessage">
+    <wsdl:part name="parameters" element="tns:FNGetDoc" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNGetDoc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FNGetDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNGetDocInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:FNGetDocInfo" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNGetDocInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FNGetDocInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNSaveDocInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:FNSaveDocInfo" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNSaveDocInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FNSaveDocInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNDeleteDocInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:FNDeleteDocInfo" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_FNDeleteDocInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FNDeleteDocInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_ShearchInAD_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShearchInAD" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_ShearchInAD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShearchInADResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_EfileLogout_InputMessage">
+    <wsdl:part name="parameters" element="tns:EfileLogout" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_EfileLogout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EfileLogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_EfileLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:EfileLogin" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_EfileLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EfileLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetEFileUserDataByNID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEFileUserDataByNID" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetEFileUserDataByNID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEFileUserDataByNIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllCRForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCRForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllCRForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCRForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllPersonsForCR_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPersonsForCR" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllPersonsForCR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPersonsForCRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetFakeAllPersonsForCR_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFakeAllPersonsForCR" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetFakeAllPersonsForCR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFakeAllPersonsForCRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GenerateSadadBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateSadadBill" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GenerateSadadBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateSadadBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetBillDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillDetail" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetBillDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBillDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_CancelBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelBill" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_CancelBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRBranches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRBranches" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRBranches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRBranchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetDelegatedReferences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDelegatedReferences" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetDelegatedReferences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDelegatedReferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetMultiCRsInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMultiCRsInfo" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetMultiCRsInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMultiCRsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GenrateMCISadadBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenrateMCISadadBill" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GenrateMCISadadBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenrateMCISadadBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetMCISadadBillStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMCISadadBillStatus" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetMCISadadBillStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMCISadadBillStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllTMForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTMForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllTMForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTMForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllProfessionsForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProfessionsForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllProfessionsForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProfessionsForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetPersonForCRWithCOC_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonForCRWithCOC" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetPersonForCRWithCOC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonForCRWithCOCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetMonshaatRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonshaatRequest" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetMonshaatRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonshaatRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetOwnerMobileByCRNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOwnerMobileByCRNumber" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetOwnerMobileByCRNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOwnerMobileByCRNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllTicketsForCRNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTicketsForCRNumber" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllTicketsForCRNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTicketsForCRNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllRelatedCrsForCRNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRelatedCrsForCRNumber" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllRelatedCrsForCRNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRelatedCrsForCRNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllTicketsForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTicketsForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllTicketsForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTicketsForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllGPMLicensesForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGPMLicensesForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllGPMLicensesForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGPMLicensesForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllLabLicensesForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLabLicensesForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllLabLicensesForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLabLicensesForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllCRForNationalIdWithoutDuplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCRForNationalIdWithoutDuplication" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllCRForNationalIdWithoutDuplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCRForNationalIdWithoutDuplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRCountWithStatusForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRCountWithStatusForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRCountWithStatusForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRCountWithStatusForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetLicenseCountWithStatusForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseCountWithStatusForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetLicenseCountWithStatusForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLicenseCountWithStatusForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetTrademarkCountWithStatusForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrademarkCountWithStatusForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetTrademarkCountWithStatusForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrademarkCountWithStatusForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetViolationCountWithStatusForNationalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetViolationCountWithStatusForNationalId" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetViolationCountWithStatusForNationalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetViolationCountWithStatusForNationalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRQRImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRQRImage" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRQRImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRQRImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRCertificate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRCertificate" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRCertificate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRCertificateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_SendNewEfadaRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendNewEfadaRequest" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_SendNewEfadaRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendNewEfadaRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetEfadaRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEfadaRequests" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetEfadaRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEfadaRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRQRUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRQRUrl" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetCRQRUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCRQRUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_ValidateShareholdersRecordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateShareholdersRecordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_ValidateShareholdersRecordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateShareholdersRecordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetShareholdersListByCRNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShareholdersListByCRNumber" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetShareholdersListByCRNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShareholdersListByCRNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetShareholderCRsByIdentityNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShareholderCRsByIdentityNumber" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetShareholderCRsByIdentityNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShareholderCRsByIdentityNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetUserPermissions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPermissions" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetUserPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllSmsTemplates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSmsTemplates" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetAllSmsTemplates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSmsTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetSmsTemplateFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSmsTemplateFields" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetSmsTemplateFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSmsTemplateFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_SubmitRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitRequest" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_SubmitRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetDetailedStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailedStatus" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetDetailedStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetailedStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetFines_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFines" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetFines_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetRecallsBySerial_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecallsBySerial" />
+  </wsdl:message>
+  <wsdl:message name="IMCIGateWayService_GetRecallsBySerial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecallsBySerialResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMCIGateWayService">
+    <wsdl:operation name="SendEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/SendEmail" message="tns:IMCIGateWayService_SendEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/SendEmailResponse" message="tns:IMCIGateWayService_SendEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailKeyVal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/SendEmailKeyVal" message="tns:IMCIGateWayService_SendEmailKeyVal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/SendEmailKeyValResponse" message="tns:IMCIGateWayService_SendEmailKeyVal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/SendSMS" message="tns:IMCIGateWayService_SendSMS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/SendSMSResponse" message="tns:IMCIGateWayService_SendSMS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCRInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRInfo" message="tns:IMCIGateWayService_GetCRInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRInfoResponse" message="tns:IMCIGateWayService_GetCRInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetPersonInfo" message="tns:IMCIGateWayService_GetPersonInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetPersonInfoResponse" message="tns:IMCIGateWayService_GetPersonInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeOTPRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/MakeOTPRequest" message="tns:IMCIGateWayService_MakeOTPRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/MakeOTPRequestResponse" message="tns:IMCIGateWayService_MakeOTPRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeOTPRequestByNID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/MakeOTPRequestByNID" message="tns:IMCIGateWayService_MakeOTPRequestByNID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/MakeOTPRequestByNIDResponse" message="tns:IMCIGateWayService_MakeOTPRequestByNID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOTPIsValid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/CheckOTPIsValid" message="tns:IMCIGateWayService_CheckOTPIsValid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/CheckOTPIsValidResponse" message="tns:IMCIGateWayService_CheckOTPIsValid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEFileContactOfficer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetEFileContactOfficer" message="tns:IMCIGateWayService_GetEFileContactOfficer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetEFileContactOfficerResponse" message="tns:IMCIGateWayService_GetEFileContactOfficer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateByAD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/AuthenticateByAD" message="tns:IMCIGateWayService_AuthenticateByAD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/AuthenticateByADResponse" message="tns:IMCIGateWayService_AuthenticateByAD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetADUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetADUser" message="tns:IMCIGateWayService_GetADUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetADUserResponse" message="tns:IMCIGateWayService_GetADUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetEmployeeData" message="tns:IMCIGateWayService_GetEmployeeData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetEmployeeDataResponse" message="tns:IMCIGateWayService_GetEmployeeData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FNSaveDoc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/FNSaveDoc" message="tns:IMCIGateWayService_FNSaveDoc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/FNSaveDocResponse" message="tns:IMCIGateWayService_FNSaveDoc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FNDeleteDoc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/FNDeleteDoc" message="tns:IMCIGateWayService_FNDeleteDoc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/FNDeleteDocResponse" message="tns:IMCIGateWayService_FNDeleteDoc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FNGetDoc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/FNGetDoc" message="tns:IMCIGateWayService_FNGetDoc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/FNGetDocResponse" message="tns:IMCIGateWayService_FNGetDoc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FNGetDocInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/FNGetDocInfo" message="tns:IMCIGateWayService_FNGetDocInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/FNGetDocInfoResponse" message="tns:IMCIGateWayService_FNGetDocInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FNSaveDocInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/FNSaveDocInfo" message="tns:IMCIGateWayService_FNSaveDocInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/FNSaveDocInfoResponse" message="tns:IMCIGateWayService_FNSaveDocInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FNDeleteDocInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/FNDeleteDocInfo" message="tns:IMCIGateWayService_FNDeleteDocInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/FNDeleteDocInfoResponse" message="tns:IMCIGateWayService_FNDeleteDocInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShearchInAD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/ShearchInAD" message="tns:IMCIGateWayService_ShearchInAD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/ShearchInADResponse" message="tns:IMCIGateWayService_ShearchInAD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EfileLogout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/EfileLogout" message="tns:IMCIGateWayService_EfileLogout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/EfileLogoutResponse" message="tns:IMCIGateWayService_EfileLogout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EfileLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/EfileLogin" message="tns:IMCIGateWayService_EfileLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/EfileLoginResponse" message="tns:IMCIGateWayService_EfileLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEFileUserDataByNID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetEFileUserDataByNID" message="tns:IMCIGateWayService_GetEFileUserDataByNID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetEFileUserDataByNIDResponse" message="tns:IMCIGateWayService_GetEFileUserDataByNID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCRForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllCRForNationalId" message="tns:IMCIGateWayService_GetAllCRForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllCRForNationalIdResponse" message="tns:IMCIGateWayService_GetAllCRForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPersonsForCR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllPersonsForCR" message="tns:IMCIGateWayService_GetAllPersonsForCR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllPersonsForCRResponse" message="tns:IMCIGateWayService_GetAllPersonsForCR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFakeAllPersonsForCR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetFakeAllPersonsForCR" message="tns:IMCIGateWayService_GetFakeAllPersonsForCR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetFakeAllPersonsForCRResponse" message="tns:IMCIGateWayService_GetFakeAllPersonsForCR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateSadadBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GenerateSadadBill" message="tns:IMCIGateWayService_GenerateSadadBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GenerateSadadBillResponse" message="tns:IMCIGateWayService_GenerateSadadBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBillDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetBillDetail" message="tns:IMCIGateWayService_GetBillDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetBillDetailResponse" message="tns:IMCIGateWayService_GetBillDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/CancelBill" message="tns:IMCIGateWayService_CancelBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/CancelBillResponse" message="tns:IMCIGateWayService_CancelBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCRBranches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRBranches" message="tns:IMCIGateWayService_GetCRBranches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRBranchesResponse" message="tns:IMCIGateWayService_GetCRBranches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegatedReferences">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetDelegatedReferences" message="tns:IMCIGateWayService_GetDelegatedReferences_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetDelegatedReferencesResponse" message="tns:IMCIGateWayService_GetDelegatedReferences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiCRsInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetMultiCRsInfo" message="tns:IMCIGateWayService_GetMultiCRsInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetMultiCRsInfoResponse" message="tns:IMCIGateWayService_GetMultiCRsInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenrateMCISadadBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GenrateMCISadadBill" message="tns:IMCIGateWayService_GenrateMCISadadBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GenrateMCISadadBillResponse" message="tns:IMCIGateWayService_GenrateMCISadadBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMCISadadBillStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetMCISadadBillStatus" message="tns:IMCIGateWayService_GetMCISadadBillStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetMCISadadBillStatusResponse" message="tns:IMCIGateWayService_GetMCISadadBillStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTMForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllTMForNationalId" message="tns:IMCIGateWayService_GetAllTMForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllTMForNationalIdResponse" message="tns:IMCIGateWayService_GetAllTMForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProfessionsForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllProfessionsForNationalId" message="tns:IMCIGateWayService_GetAllProfessionsForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllProfessionsForNationalIdResponse" message="tns:IMCIGateWayService_GetAllProfessionsForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonForCRWithCOC">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetPersonForCRWithCOC" message="tns:IMCIGateWayService_GetPersonForCRWithCOC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetPersonForCRWithCOCResponse" message="tns:IMCIGateWayService_GetPersonForCRWithCOC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonshaatRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetMonshaatRequest" message="tns:IMCIGateWayService_GetMonshaatRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetMonshaatRequestResponse" message="tns:IMCIGateWayService_GetMonshaatRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOwnerMobileByCRNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetOwnerMobileByCRNumber" message="tns:IMCIGateWayService_GetOwnerMobileByCRNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetOwnerMobileByCRNumberResponse" message="tns:IMCIGateWayService_GetOwnerMobileByCRNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketsForCRNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllTicketsForCRNumber" message="tns:IMCIGateWayService_GetAllTicketsForCRNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllTicketsForCRNumberResponse" message="tns:IMCIGateWayService_GetAllTicketsForCRNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRelatedCrsForCRNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllRelatedCrsForCRNumber" message="tns:IMCIGateWayService_GetAllRelatedCrsForCRNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllRelatedCrsForCRNumberResponse" message="tns:IMCIGateWayService_GetAllRelatedCrsForCRNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketsForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllTicketsForNationalId" message="tns:IMCIGateWayService_GetAllTicketsForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllTicketsForNationalIdResponse" message="tns:IMCIGateWayService_GetAllTicketsForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGPMLicensesForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllGPMLicensesForNationalId" message="tns:IMCIGateWayService_GetAllGPMLicensesForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllGPMLicensesForNationalIdResponse" message="tns:IMCIGateWayService_GetAllGPMLicensesForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLabLicensesForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllLabLicensesForNationalId" message="tns:IMCIGateWayService_GetAllLabLicensesForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllLabLicensesForNationalIdResponse" message="tns:IMCIGateWayService_GetAllLabLicensesForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCRForNationalIdWithoutDuplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllCRForNationalIdWithoutDuplication" message="tns:IMCIGateWayService_GetAllCRForNationalIdWithoutDuplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllCRForNationalIdWithoutDuplicationResponse" message="tns:IMCIGateWayService_GetAllCRForNationalIdWithoutDuplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCRCountWithStatusForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRCountWithStatusForNationalId" message="tns:IMCIGateWayService_GetCRCountWithStatusForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRCountWithStatusForNationalIdResponse" message="tns:IMCIGateWayService_GetCRCountWithStatusForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseCountWithStatusForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetLicenseCountWithStatusForNationalId" message="tns:IMCIGateWayService_GetLicenseCountWithStatusForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetLicenseCountWithStatusForNationalIdResponse" message="tns:IMCIGateWayService_GetLicenseCountWithStatusForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrademarkCountWithStatusForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetTrademarkCountWithStatusForNationalId" message="tns:IMCIGateWayService_GetTrademarkCountWithStatusForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetTrademarkCountWithStatusForNationalIdResponse" message="tns:IMCIGateWayService_GetTrademarkCountWithStatusForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViolationCountWithStatusForNationalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetViolationCountWithStatusForNationalId" message="tns:IMCIGateWayService_GetViolationCountWithStatusForNationalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetViolationCountWithStatusForNationalIdResponse" message="tns:IMCIGateWayService_GetViolationCountWithStatusForNationalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCRQRImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRQRImage" message="tns:IMCIGateWayService_GetCRQRImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRQRImageResponse" message="tns:IMCIGateWayService_GetCRQRImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCRCertificate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRCertificate" message="tns:IMCIGateWayService_GetCRCertificate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRCertificateResponse" message="tns:IMCIGateWayService_GetCRCertificate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNewEfadaRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/SendNewEfadaRequest" message="tns:IMCIGateWayService_SendNewEfadaRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/SendNewEfadaRequestResponse" message="tns:IMCIGateWayService_SendNewEfadaRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEfadaRequests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetEfadaRequests" message="tns:IMCIGateWayService_GetEfadaRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetEfadaRequestsResponse" message="tns:IMCIGateWayService_GetEfadaRequests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCRQRUrl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRQRUrl" message="tns:IMCIGateWayService_GetCRQRUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetCRQRUrlResponse" message="tns:IMCIGateWayService_GetCRQRUrl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateShareholdersRecordUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/ValidateShareholdersRecordUpdate" message="tns:IMCIGateWayService_ValidateShareholdersRecordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/ValidateShareholdersRecordUpdateResponse" message="tns:IMCIGateWayService_ValidateShareholdersRecordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShareholdersListByCRNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetShareholdersListByCRNumber" message="tns:IMCIGateWayService_GetShareholdersListByCRNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetShareholdersListByCRNumberResponse" message="tns:IMCIGateWayService_GetShareholdersListByCRNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShareholderCRsByIdentityNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetShareholderCRsByIdentityNumber" message="tns:IMCIGateWayService_GetShareholderCRsByIdentityNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetShareholderCRsByIdentityNumberResponse" message="tns:IMCIGateWayService_GetShareholderCRsByIdentityNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermissions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetUserPermissions" message="tns:IMCIGateWayService_GetUserPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetUserPermissionsResponse" message="tns:IMCIGateWayService_GetUserPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSmsTemplates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllSmsTemplates" message="tns:IMCIGateWayService_GetAllSmsTemplates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetAllSmsTemplatesResponse" message="tns:IMCIGateWayService_GetAllSmsTemplates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsTemplateFields">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetSmsTemplateFields" message="tns:IMCIGateWayService_GetSmsTemplateFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetSmsTemplateFieldsResponse" message="tns:IMCIGateWayService_GetSmsTemplateFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/SubmitRequest" message="tns:IMCIGateWayService_SubmitRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/SubmitRequestResponse" message="tns:IMCIGateWayService_SubmitRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetStatus" message="tns:IMCIGateWayService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetStatusResponse" message="tns:IMCIGateWayService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailedStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetDetailedStatus" message="tns:IMCIGateWayService_GetDetailedStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetDetailedStatusResponse" message="tns:IMCIGateWayService_GetDetailedStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFines">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetFines" message="tns:IMCIGateWayService_GetFines_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetFinesResponse" message="tns:IMCIGateWayService_GetFines_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecallsBySerial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMCIGateWayService/GetRecallsBySerial" message="tns:IMCIGateWayService_GetRecallsBySerial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMCIGateWayService/GetRecallsBySerialResponse" message="tns:IMCIGateWayService_GetRecallsBySerial_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="endpointMCIGateWayService" type="tns:IMCIGateWayService">
+    <wsp:PolicyReference URI="#endpointMCIGateWayService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/SendEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailKeyVal">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/SendEmailKeyVal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCRInfo">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetCRInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonInfo">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetPersonInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeOTPRequest">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/MakeOTPRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeOTPRequestByNID">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/MakeOTPRequestByNID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOTPIsValid">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/CheckOTPIsValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEFileContactOfficer">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetEFileContactOfficer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateByAD">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/AuthenticateByAD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetADUser">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetADUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeData">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetEmployeeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FNSaveDoc">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/FNSaveDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FNDeleteDoc">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/FNDeleteDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FNGetDoc">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/FNGetDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FNGetDocInfo">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/FNGetDocInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FNSaveDocInfo">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/FNSaveDocInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FNDeleteDocInfo">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/FNDeleteDocInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShearchInAD">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/ShearchInAD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EfileLogout">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/EfileLogout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EfileLogin">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/EfileLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEFileUserDataByNID">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetEFileUserDataByNID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCRForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllCRForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPersonsForCR">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllPersonsForCR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFakeAllPersonsForCR">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetFakeAllPersonsForCR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateSadadBill">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GenerateSadadBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillDetail">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetBillDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelBill">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/CancelBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCRBranches">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetCRBranches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDelegatedReferences">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetDelegatedReferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiCRsInfo">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetMultiCRsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenrateMCISadadBill">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GenrateMCISadadBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMCISadadBillStatus">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetMCISadadBillStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTMForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllTMForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProfessionsForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllProfessionsForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonForCRWithCOC">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetPersonForCRWithCOC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonshaatRequest">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetMonshaatRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOwnerMobileByCRNumber">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetOwnerMobileByCRNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketsForCRNumber">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllTicketsForCRNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRelatedCrsForCRNumber">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllRelatedCrsForCRNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketsForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllTicketsForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGPMLicensesForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllGPMLicensesForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLabLicensesForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllLabLicensesForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCRForNationalIdWithoutDuplication">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllCRForNationalIdWithoutDuplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCRCountWithStatusForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetCRCountWithStatusForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicenseCountWithStatusForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetLicenseCountWithStatusForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrademarkCountWithStatusForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetTrademarkCountWithStatusForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViolationCountWithStatusForNationalId">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetViolationCountWithStatusForNationalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCRQRImage">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetCRQRImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCRCertificate">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetCRCertificate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNewEfadaRequest">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/SendNewEfadaRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEfadaRequests">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetEfadaRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCRQRUrl">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetCRQRUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateShareholdersRecordUpdate">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/ValidateShareholdersRecordUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShareholdersListByCRNumber">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetShareholdersListByCRNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShareholderCRsByIdentityNumber">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetShareholderCRsByIdentityNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermissions">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetUserPermissions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSmsTemplates">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetAllSmsTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsTemplateFields">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetSmsTemplateFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitRequest">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/SubmitRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetailedStatus">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetDetailedStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFines">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetFines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecallsBySerial">
+      <soap:operation soapAction="http://tempuri.org/IMCIGateWayService/GetRecallsBySerial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MCIGateWayService">
+    <wsdl:port name="endpointMCIGateWayService" binding="tns:endpointMCIGateWayService">
+      <soap:address location="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Framework.Models.Efada" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Framework.Models.Efada" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="EfadaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="docId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="efadaTypeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sadadBillCreationDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sadadBillNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="success" type="xs:boolean" />
+      <xs:element minOccurs="0" name="user" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EfadaResponse" nillable="true" type="tns:EfadaResponse" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identityNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="EfadaRequests">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="requests" nillable="true" type="tns:ArrayOfEfadaRequest" />
+      <xs:element minOccurs="0" name="success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EfadaRequests" nillable="true" type="tns:EfadaRequests" />
+  <xs:complexType name="ArrayOfEfadaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EfadaRequest" nillable="true" type="tns:EfadaRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEfadaRequest" nillable="true" type="tns:ArrayOfEfadaRequest" />
+  <xs:complexType name="EfadaRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="companyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="crNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="createDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="docId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="requestId" type="xs:long" />
+      <xs:element minOccurs="0" name="requestStatusId" type="xs:int" />
+      <xs:element minOccurs="0" name="sadadBillNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="showPrintButton" type="xs:boolean" />
+      <xs:element minOccurs="0" name="stepName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EfadaRequest" nillable="true" type="tns:EfadaRequest" />
+</xs:schema>

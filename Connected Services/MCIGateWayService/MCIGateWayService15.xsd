@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Framework.Models.Recalls" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Framework.Models.Recalls" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://gateway.mci.gov.sa/v1/MCIGateWayService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfRecallBySerial">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecallBySerial" nillable="true" type="tns:RecallBySerial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecallBySerial" nillable="true" type="tns:ArrayOfRecallBySerial" />
+  <xs:complexType name="RecallBySerial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentNameAr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentNameEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectAr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescriptionAr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescriptionEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsFixed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ModelNameAr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelNameEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcedureAr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcedureEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecallContacts" nillable="true" type="tns:ArrayOfRecallContact" />
+      <xs:element minOccurs="0" name="RecallDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RecallId" type="ser:guid" />
+      <xs:element minOccurs="0" name="RecallImageURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecallImagesURLs" nillable="true" type="tns:ArrayOfRecallImage" />
+      <xs:element minOccurs="0" name="ReferenceNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TitleAr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TitleEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TradeMarkNameAr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TradeMarkNameEn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecallBySerial" nillable="true" type="tns:RecallBySerial" />
+  <xs:complexType name="ArrayOfRecallContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecallContact" nillable="true" type="tns:RecallContact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecallContact" nillable="true" type="tns:ArrayOfRecallContact" />
+  <xs:complexType name="RecallContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DescriptionAr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescriptionEn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecallContact" nillable="true" type="tns:RecallContact" />
+  <xs:complexType name="ArrayOfRecallImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecallImage" nillable="true" type="tns:RecallImage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecallImage" nillable="true" type="tns:ArrayOfRecallImage" />
+  <xs:complexType name="RecallImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttachmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageURL" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecallImage" nillable="true" type="tns:RecallImage" />
+</xs:schema>
